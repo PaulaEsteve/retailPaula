@@ -13,7 +13,7 @@ class ContacteController {
         array("codi" => 5, "nom" => "Sara Sidle", "telefon" => "638765434", "email" => "sarasidle@simarro.org"), 
     );
 
-    // #[Route('/contacte/{codi<\d+>}' ,name:'fitxa_contacte')]
+    // #[Route('/contacte/{codi<\d+>?1}' ,name:'fitxa_contacte')]
     #[Route('/contacte/{codi}', name:'fitxa_contacte', requirements: ['codi' => '\d+'])]
     public function fitxa($codi){
 

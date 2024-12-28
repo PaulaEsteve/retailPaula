@@ -1,5 +1,5 @@
 <?php
-/*este controlador ha sigut creat desde el terminal amb el següent comando--> php bin/console make:controller NomControlador*/
+/*este controlador ha sigut creat desde el terminal amb el següent comando--> php bin/console make:controller NomControlador
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,4 +18,4 @@ class NomControladorController extends AbstractController
             'path' => 'src/Controller/NomControladorController.php',
         ]);
     }
-}
+} */

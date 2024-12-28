@@ -10,7 +10,7 @@ class IniciController {
     #[Route('/' ,name:'inici')]
 
     public function inici(){
-        return new Response("Benvinguda al web de retail");
+        return new Response("Projecte Gestió Retail de 2n Daw");
     }
 }
 ?>
