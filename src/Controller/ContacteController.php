@@ -13,8 +13,8 @@ class ContacteController {
         array("codi" => 5, "nom" => "Sara Sidle", "telefon" => "638765434", "email" => "sarasidle@simarro.org"), 
     );
 
-
-    #[Route('/contacte/{codi}', name:'fitxa_contacte')]
+    // #[Route('/contacte/{codi<\d+>}' ,name:'fitxa_contacte')]
+    #[Route('/contacte/{codi}', name:'fitxa_contacte', requirements: ['codi' => '\d+'])]
     public function fitxa($codi){
 
         $resultat = array_filter($this->contactes,
@@ -37,5 +37,29 @@ class ContacteController {
         }
 
         
+    }
+
+    #[Route('/contacte/{text}' ,name:'buscar_contacte')]
+    public function buscar($text) {
+
+        $resultat = array_filter($this->contactes,
+        function($contacte) use ($text) {
+            return strpos($contacte["nom"],$text) !== FALSE;
+        });
+
+        $resposta = "";
+
+        if (count($resultat) > 0) {
+            foreach ($resultat as $contacte) {
+                $resposta .= "<ul>
+                                <li>" . $contacte["nom"] . "</li>" . 
+                                "<li>" . $contacte["telefon"] . "</li>" . 
+                                "<li>" . $contacte["email"] . "</li>
+                            </ul>" ;
+            }
+            return new Response("<html><body>$resposta</bdy></html>");
+        } else {
+            return new Response("Contacte no trobat");
+        }
     }
 }
