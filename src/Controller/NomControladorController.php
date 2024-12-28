@@ -7,8 +7,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 
 class NomControladorController extends AbstractController
-{
-    #[Route('/nom/controlador', name: 'app_nom_controlador')]
+{   
+
+    // Associa la ruta arrel amb el mètode i li assigna el nom "inici".
+    #[Route('/nom/controlador', name: 'app_nom_controlador')] 
     public function index(): JsonResponse
     {
         return $this->json([
