@@ -6,11 +6,24 @@ namespace App\Controller; // perteneix al espai de noms Controller ( cada carpet
 use Symfony\Component\HttpFoundation\Response; ///var/www/html/symfony/retailPaula/vendor/symfony/http-foundation/Response.php
 //use Symfony\Component\HttpFoundation\Response as Res; per a cridar a la clase de forma abreujada
 use Symfony\Component\Routing\Annotation\Route;
-class IniciController {
-    #[Route('/' ,name:'inici')]
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-    public function inici(){
-        return new Response("Projecte Gestió Retail de 2n Daw");
+class IniciController extends AbstractController{
+    #[Route('/' ,name:'home')]
+    public function home(){
+        return $this->render('MainContent/home.html.twig');
+    }
+
+    #[Route('/contacte', name: 'contacte')]
+    public function contacte(): Response
+    {
+        return $this->render('MainContent/contact.html.twig');
+    }
+
+    #[Route('/seccions', name: 'seccions')]
+    public function seccions(): Response
+    {
+        return $this->render('MainContent/seccions.html.twig');
     }
 }
 ?>
