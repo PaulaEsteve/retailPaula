@@ -48,6 +48,35 @@ h6 {
   border-radius: 50px;
   transition: all 0.4s;
 }
+.arrere{
+  position: relative;
+  /* right: 15px;
+  bottom: 15px; */
+  z-index: 996;
+  background: #149ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.arrere:hover{
+  background: #fff;
+}
+
+.arrere i:hover{
+  color:#149ddd ;
+}
+
+.arrere i{
+  font-size: 28px;
+  color: #fff;
+  line-height: 0;
+}
 
 .back-to-top i {
   font-size: 28px;

@@ -6,7 +6,7 @@
 	<div class="d-flex flex-column">
 
 		<div class="profile">
-			<img src="assets/img/logo.png" alt="" class="img-fluid rounded-circle">
+			<img src="{{ asset('assets/img/logo.png')}}" alt="" class="img-fluid rounded-circle">
 			<h1 class="text-light">
 				<a href="index.html">RetailPaula</a>
 			</h1>
@@ -31,12 +31,13 @@
 
 		<nav id="navbar" class="nav-menu navbar">
 			<ul>
-				<li><a href="{{path('home')}}" class="nav-link scrollto active"><i class="bx bx-home"></i><span>Home</span></a></li>
-				<li><a href="{{path('seccions')}}" class="nav-link scrollto"><i class="bx bx-user"></i><span>Seccions</span></a></li>
-				<li><a href="{{path('contacte')}}" class="nav-link scrollto"><i class="bx bx-file-blank"></i><span>Contacte</span></a></li>
-				<li><a href="" class="nav-link scrollto"><i class="bx bx-book-content"></i><span>Administració</span></a></li>
+				<li><a href="{{ path('home') }}" class="nav-link scrollto {% if app.request.attributes.get('_route') == 'home' %}active{% endif %}"><i class="bx bx-home"></i><span>Home</span></a></li>
+				<li><a href="{{ path('seccions') }}" class="nav-link scrollto {% if app.request.attributes.get('_route') == 'seccions' %}active{% endif %}"><i class="bx bx-user"></i><span>Seccions</span></a></li>
+				<li><a href="{{ path('contacte') }}" class="nav-link scrollto {% if app.request.attributes.get('_route') == 'contacte' %}active{% endif %}"><i class="bx bx-file-blank"></i><span>Contacte</span></a></li>
+				<li><a href="" class="nav-link scrollto {% if app.request.attributes.get('_route') == 'administracio' %}active{% endif %}"><i class="bx bx-book-content"></i><span>Administració</span></a></li>
 			</ul>
 		</nav>
+
 		<!-- .nav-menu -->
 	</div>
 </header>

@@ -19,11 +19,5 @@ class IniciController extends AbstractController{
     {
         return $this->render('MainContent/contact.html.twig');
     }
-
-    #[Route('/seccions', name: 'seccions')]
-    public function seccions(): Response
-    {
-        return $this->render('MainContent/seccions.html.twig');
-    }
 }
 ?>
