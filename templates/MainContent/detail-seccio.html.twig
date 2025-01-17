@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+	<!-- ======= About Section ======= -->
+	<section id="about" class="about">
+	<a class="arrere" href="{{path('seccions')}}">
+					<i class="bi bi-arrow-left-short"></i>
+				</a>
+		<div class="container">
+		
+			<div class="section-title">
+				
+				<h2>{{seccio.nom}}</h2>
+				<p>{{seccio.any}}</p>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4" data-aos="fade-right">
+					<img src="{{ asset('assets/img/portfolio/' ~ seccio.imatge) }}" class="img-fluid" alt="">
+				</div>
+				<div
+					class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+					{# <h3>UI/UX Designer &amp; Web Developer.</h3> #}
+					<p class="fst-italic">
+						{{seccio.descripcio}}
+					</p>
+					<div class="row">
+						<div class="col-lg-6">
+							{% for article in seccio.articles %}
+								<ul>
+									<li>
+										<i class="bi bi-chevron-right"></i>
+										<strong>{{article}}</strong>
+										{# <span>1 May 1995</span> #}
+									</li>
+								</ul>
+							{% endfor %}
+						</div>
+					</div>
+					{# <p> </p> #}
+				</div>
+			</div>
+
+		</section>
+		<!-- End About Section -->
+	{% endblock %}
