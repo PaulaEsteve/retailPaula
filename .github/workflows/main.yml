@@ -19,15 +19,24 @@ jobs:
       with:
         php-version: '8.2'
 
+    - name: Check Symfony Environment
+      run: echo "APP_ENV=${APP_ENV}"
+
+    - name: Remove Symfony Cache Manually
+      run: rm -rf var/cache/*
+
     - name: Install dependencies
       run: |
         composer install --no-dev --optimize-autoloader --no-interaction
+
+    - name: Remove MakerBundle (if exists)
+      run: composer remove symfony/maker-bundle --dev || true
 
     - name: Clear Composer Cache
       run: composer clear-cache
 
     - name: Clear Symfony Cache
-      run: php bin/console cache:clear --no-warmup
+      run: php bin/console cache:clear --env=prod --no-warmup
 
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v2
