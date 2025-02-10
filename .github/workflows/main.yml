@@ -26,6 +26,9 @@ jobs:
     - name: Clear Composer Cache
       run: composer clear-cache
 
+    - name: Clear Symfony Cache
+      run: php bin/console cache:clear --no-warmup
+
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v2
       with:
